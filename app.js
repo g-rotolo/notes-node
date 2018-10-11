@@ -13,11 +13,11 @@ switch (command) {
   case "list":
     notes.listNotes();
     break;
-  case "read":
-    console.log("Fetching note...");
+  case "fetch":
+    notes.fetchNote(argv.title);
     break;
   case "remove":
-    console.log("Removing note...");
+    notes.deleteNote(argv.title);
     break;
   default:
     console.log("Command not recognized!");
