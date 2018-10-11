@@ -8,11 +8,9 @@ let command = process.argv[2];
 
 switch (command) {
   case "add":
-    console.log("Adding a new note...");
     notes.addNote(argv.title, argv.body);
     break;
   case "list":
-    console.log("Listing all notes...");
     notes.listNotes();
     break;
   case "read":
