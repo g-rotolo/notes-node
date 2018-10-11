@@ -39,14 +39,9 @@ const listNotes = () => {
   console.log("Listing all notes...");
 
   const notes = getNotes();
+  debugger;
 
-  if (notes.length === 0) console.log('You dont have any note...');
-
-  notes.map((note, index) => {
-    if(index === 0) console.log('------------------------------');
-    console.log(`Title: ${note.title} \nContent: ${note.body}`);
-    console.log('----------------------------------------------');
-  })
+  logNotes(notes);
 };
 
 const fetchNote = (title) => {
@@ -58,9 +53,7 @@ const fetchNote = (title) => {
   note = notes.find(note => note.title === title);
 
   if(note) {
-    console.log('----------------------------------------------');
-    console.log(`Title: ${note.title} \nContent: ${note.body}`);
-    console.log('----------------------------------------------');
+    logNotes(note);
   } else {
     console.log(`Note with title: ${title} not found.`);
   }
@@ -84,6 +77,22 @@ const deleteNote = (title) => {
     } else {
       console.log(`Note with title: ${title} not found.`);
     }
+  }
+}
+
+const logNotes = (param) => {
+  debugger;
+  if(typeof param === 'array') {
+    if (param.length === 0) console.log('You dont have any note...');
+    param.map((note, index) => {
+      if(index === 0) console.log('------------------------------');
+      console.log(`Title: ${note.title} \nContent: ${note.body}`);
+      console.log('----------------------------------------------');
+    })
+  } else {
+    console.log('------------------------------');
+    console.log(`Title: ${param.title} \nContent: ${param.body}`);
+    console.log('----------------------------------------------');
   }
 }
 
