@@ -25,5 +25,3 @@ switch (command) {
     console.log("Command not recognized!");
     break;
 }
-
-//notes.createGreetingsFile(5);
