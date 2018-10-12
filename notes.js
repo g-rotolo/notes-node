@@ -40,8 +40,8 @@ const listNotes = () => {
   console.log("Listing all notes...");
 
   const notes = getNotes();
-
-  logNotes(notes);
+  if (notes.length === 0) console.log('You dont have any note...');
+  if (notes.length > 0) notes.forEach(note => logNote(note));
 };
 
 const fetchNote = (title) => {
@@ -53,7 +53,7 @@ const fetchNote = (title) => {
   note = notes.find(note => note.title === title);
 
   if(note) {
-    logNotes(note);
+    logNote(note);
   } else {
     console.log(`Note with title: ${title} not found.`);
   }
@@ -80,19 +80,9 @@ const deleteNote = (title) => {
   }
 }
 
-const logNotes = (param) => {
-  if(param.length >= 0) {
-    if (param.length === 0) console.log('You dont have any note...');
-    param.map((note, index) => {
-      if(index === 0) console.log('------------------------------');
-      console.log(`Title: ${note.title} \nContent: ${note.body}`);
-      console.log('----------------------------------------------');
-    })
-  } else {
-    console.log('------------------------------');
-    console.log(`Title: ${param.title} \nContent: ${param.body}`);
-    console.log('----------------------------------------------');
-  }
+const logNote = (note) => {
+  console.log('------------------');
+  console.log(`Title: ${note.title} \nContent: ${note.body}`);
 }
 
 module.exports = {
