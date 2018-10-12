@@ -7,7 +7,10 @@ person.name = 'Giuseppe';
 
 debugger; //breakpoint
 
-// to start node in debug:
+// if started with nodemon instead of node
+// the debugger will react to changes in real time
+
+// to start node in debug using terminal:
 // node inspect <filename>
 // in debug mode:
 // n -> next line
@@ -17,6 +20,13 @@ debugger; //breakpoint
 // print anything just using variable name
 // to exit:
 // control + C
+
+// to start node in debug mode using chrome:
+// node --inspect-brk <filename>
+// then open chrome at:
+// chrome://inspect
+// click on Open dedicated devTools
+// Enjoy
 
 
 person.age = 28;
