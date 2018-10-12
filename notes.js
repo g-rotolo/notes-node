@@ -3,6 +3,7 @@ const fs = require('fs');
 const getNotes = () => {
   try {
     const notes = fs.readFileSync('notes-data.json');
+
     return JSON.parse(notes);
   } catch(e) {
     return [];
@@ -39,7 +40,6 @@ const listNotes = () => {
   console.log("Listing all notes...");
 
   const notes = getNotes();
-  debugger;
 
   logNotes(notes);
 };
@@ -81,8 +81,7 @@ const deleteNote = (title) => {
 }
 
 const logNotes = (param) => {
-  debugger;
-  if(typeof param === 'array') {
+  if(param.length >= 0) {
     if (param.length === 0) console.log('You dont have any note...');
     param.map((note, index) => {
       if(index === 0) console.log('------------------------------');
