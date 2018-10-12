@@ -3,7 +3,32 @@ console.log("Starting app.js");
 const notes = require("./notes");
 const yargs = require('yargs');
 
-const argv = yargs.argv;
+const titleOptions = {
+  describe: 'Title of note',
+  demand: true,
+  alias: 't'
+};
+
+const bodyOptions = {
+  describe: 'Body of note',
+  demand: true,
+  alias: 'b'
+};
+
+const argv = yargs
+      .command('add', 'Add a new note', {
+        title: titleOptions,
+        body: bodyOptions
+      })
+      .command('list', 'List all notes')
+      .command('fetch', 'Fetch a note', {
+        title: titleOptions
+      })
+      .command('remove', 'Remove a note', {
+        title: titleOptions
+      })
+      .help()
+      .argv;
 let command = process.argv[2];
 
 switch (command) {
